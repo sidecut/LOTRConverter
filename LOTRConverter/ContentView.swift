@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showExchangeInfo = false
+    @State var leftAmount = ""
+    @State var rightAmount = ""
+
     var body: some View {
         ZStack {
             Image(.background)
@@ -34,15 +38,17 @@ struct ContentView: View {
                             Text("Silver Piece")
                                 .font(.headline)
                                 .foregroundStyle(.white)
-                        }
-                        Text("Text field")
-                            .foregroundColor(Color.blue)
+                        }/*.padding(.bottom, -5.0)*/
+                        
+                        TextField("amount", text: $leftAmount)
+                            .textFieldStyle(.roundedBorder)
                     }
+                    .padding()
                     
                     // Equal sign
                     Image(systemName: "equal")
-                        .font(.largeTitle)
                         .foregroundColor(Color.white)
+                        .font(.largeTitle)
                         .symbolEffect(.pulse)
                     
                     // Conversion section
@@ -55,26 +61,37 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 33.0)
-                        }
-                        Text("Text field")
-                            .foregroundColor(Color.blue)
+                        }/*.padding(.bottom, -5.0)*/
+                        
+                        TextField("amount", text: $rightAmount)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.trailing)
                     }
+                    .padding()
                 }
+//                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .background(Color.black.opacity(0.5))
+                .clipShape(RoundedRectangle(cornerRadius: 20.0))
                 
                 Spacer()
                 
-                HStack{
+                // Info button
+                HStack {
                     Spacer()
-                    // Info button
-                    Image(systemName: "info.circle.fill")
-                        .padding(.trailing, 50)
-                        .font(.largeTitle)
-                        .foregroundColor(Color.white)
                     
+                    Button {
+                        showExchangeInfo.toggle()
+                    } label: {
+                        Image(systemName: "info.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(Color.white)
+                    }
+                    .padding(.trailing)
                 }
             }
 //            .border(.blue)
         }
+        .accessibilityLabel("Herro")
     }
 }
 
