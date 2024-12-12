@@ -91,7 +91,6 @@ struct ContentView: View {
             }
 //            .border(.blue)
         }
-        .accessibilityLabel("Herro")
     }
 }
 
