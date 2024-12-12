@@ -26,7 +26,10 @@ struct ExchangeInfo: View {
                     .padding(.trailing, 30.0)
                     .padding(.bottom)
                 
-                ExchangeRate(exchangeInfo: "1 Gold Piece = 4 Gold Pennies")
+                ExchangeRate(leftImage: .goldpiece, exchangeInfo: "1 Gold Piece = 4 Gold Pennies", rightImage: .goldpenny)
+                ExchangeRate(leftImage: .goldpenny, exchangeInfo: "1 Gold Penny = 4 Silver Pieces", rightImage: .silverpiece)
+                ExchangeRate(leftImage: .silverpiece, exchangeInfo: "1 Silver Piece = 4 Silver Pennies", rightImage: .silverpenny)
+                ExchangeRate(leftImage: .silverpenny, exchangeInfo: "1 Silver Penny = 100 Copper Pennies", rightImage: .copperpenny)
                 
                 Button("Done") {
                     
