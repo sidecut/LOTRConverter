@@ -23,7 +23,7 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 200.0)
-                
+
                 // Currency exchange text
                 Text("Currency Exchange")
                     .font(.largeTitle)
@@ -39,18 +39,18 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundStyle(.white)
                         }/*.padding(.bottom, -5.0)*/
-                        
+
                         TextField("amount", text: $leftAmount)
                             .textFieldStyle(.roundedBorder)
                     }
                     .padding()
-                    
+
                     // Equal sign
                     Image(systemName: "equal")
                         .foregroundColor(Color.white)
                         .font(.largeTitle)
                         .symbolEffect(.pulse)
-                    
+
                     // Conversion section
                     VStack{
                         HStack{
@@ -62,7 +62,7 @@ struct ContentView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 33.0)
                         }/*.padding(.bottom, -5.0)*/
-                        
+
                         TextField("amount", text: $rightAmount)
                             .textFieldStyle(.roundedBorder)
                             .multilineTextAlignment(.trailing)
@@ -72,13 +72,13 @@ struct ContentView: View {
 //                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 .background(Color.black.opacity(0.5))
                 .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                
+
                 Spacer()
-                
+
                 // Info button
                 HStack {
                     Spacer()
-                    
+
                     Button {
                         showExchangeInfo.toggle()
                     } label: {

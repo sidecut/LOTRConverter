@@ -5,7 +5,6 @@
 //  Created by James Raden on 12/12/24.
 //
 
-
 import SwiftUI
 
 struct ExchangeRate: View {
@@ -14,14 +13,14 @@ struct ExchangeRate: View {
     let rightImage: ImageResource
 
     var body: some View {
-        HStack{
+        HStack {
             Image(leftImage)
                 .resizable()
                 .scaledToFit()
                 .frame(height: 33.0)
-            
+
             Text(exchangeInfo)
-            
+
             Image(rightImage)
                 .resizable()
                 .scaledToFit()
