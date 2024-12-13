@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SelectCurrency: View {
     @Environment(\.dismiss) var dismiss
-    @State var fromCurrency: Currency
-    @State var toCurrency: Currency
+    @Binding var fromCurrency: Currency
+    @Binding var toCurrency: Currency
 
     var body: some View {
         ZStack {
@@ -49,5 +49,8 @@ struct SelectCurrency: View {
 }
 
 #Preview {
-    SelectCurrency(fromCurrency: .silverPenny, toCurrency: .goldPenny)
+    @Previewable @State var fromCurrency: Currency = .silverPenny
+    @Previewable @State var toCurrency: Currency = .goldPenny
+
+    SelectCurrency(fromCurrency: $fromCurrency, toCurrency: $toCurrency)
 }
