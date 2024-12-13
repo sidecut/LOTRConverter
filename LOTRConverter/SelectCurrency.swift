@@ -5,19 +5,10 @@
 //  Created by James Raden on 12/12/24.
 //
 
-
 import SwiftUI
 
 struct SelectCurrency: View {
     @Environment(\.dismiss) var dismiss
-
-    let currencies: [(ImageResource, String)] = [
-        (ImageResource.copperpenny, currencyName: "Copper Penny"),
-        (ImageResource.copperpenny, currencyName: "Copper Penny"),
-        (ImageResource.copperpenny, currencyName: "Copper Penny"),
-        (ImageResource.copperpenny, currencyName: "Copper Penny"),
-        (ImageResource.copperpenny, currencyName: "Copper Penny"),
-    ]
 
     var body: some View {
         ZStack {
@@ -31,14 +22,13 @@ struct SelectCurrency: View {
                     .fontWeight(.bold)
 
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                    ForEach(0..<5) {i in
-                        CurrencyIcon(currencyImage: currencies[i].0, currencyName: currencies[i].1)
+                    ForEach(Currency.allCases) { currency in
+                        CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
                     }
                 }
 
                 Text("Select the currency you would like to convert to:")
                     .fontWeight(.bold)
-
 
                 Button("Done") {
                     dismiss()
@@ -53,10 +43,8 @@ struct SelectCurrency: View {
             .multilineTextAlignment(.center)
         }
     }
- }
+}
 
 #Preview {
     SelectCurrency()
 }
-
-
