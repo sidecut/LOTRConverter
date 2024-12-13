@@ -24,25 +24,20 @@ struct SelectCurrency: View {
 
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
                     ForEach(Currency.allCases) { currency in
-                        Button {
-                            self.currency = currency
-                        } label: {
-                            if currency == self.currency {
-                                CurrencyIcon(
-                                    currencyImage: currency.image, currencyName: currency.name
-                                )
+                        if currency == self.currency {
+                            CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
                                 .shadow(color: .black, radius: 10.0)
                                 .overlay {
                                     RoundedRectangle(cornerRadius: 25.0)
                                         .stroke(lineWidth: 3.0)
                                         .opacity(0.5)
                                 }
-                            } else {
-                                CurrencyIcon(
-                                    currencyImage: currency.image, currencyName: currency.name)
-                            }
+                        } else {
+                            CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
+                                .onTapGesture {
+                                    self.currency = currency
+                                }
                         }
-                        .foregroundStyle(.black)
                     }
                 }
 
